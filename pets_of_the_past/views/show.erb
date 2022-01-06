@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+<h1>dish details for <%= pets['name'] %></h1>
+
+<p>more details coming soon!</p>
+
+<img src="<%= pets['image_url'] %>" alt="">
+
+
+<form action="/pets/<%= pets['id'] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>delete</button>
+</form>
+
+<a href="/pets/<%= pets['id'] %>/edit">edit</a>
+
+    
+</body>
+</html>
