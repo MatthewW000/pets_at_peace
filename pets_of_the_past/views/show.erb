@@ -4,25 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 <body>
 
 
 
-<h1>dish details for <%= pets['name'] %></h1>
-
-<p>more details coming soon!</p>
-
-<img src="<%= pets['image_url'] %>" alt="">
+<h1> here lies the post & memory of <%= pets['name'] %></h1>
 
 
+<div class="image">
+    <a href=""> 
+        <img src="<%= pets['image_url'] %>" alt="">
+    </a>
+</div>
+
+<% if logged_in?() %>
+    <div class="comments-container">
+
+        
+    <form action="8/comment" method="post">
+        <input type="text" name="comment" value="">
+        <label for="">comment</label>
+        <button>say something nice!</button>
+        
+
+        
+        
+        </form>
+
+        <h2>comments for <%= pets['name'] %></h2>
+        <p class="comment"><%= pets['name'] %> was so handsome xo</p>
+        <p class="comment"><%= pets['name'] %> killed a man once</p>
+        <p class="comment"><%= pets['name'] %> and i use to listen to led zeppelin</p>
+        <p class="comment"><%= pets['name'] %> once saved me from dying</p>
+        <p class="comment">one time we drove to get maccas at 4 am</p>
+            <% comments.each do |comment| %>
+            <p> <%= comment['body'] %> </p>
+            <% end %>
+        
+    </div>
 <form action="/pets/<%= pets['id'] %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <button>delete</button>
 </form>
 
 <a href="/pets/<%= pets['id'] %>/edit">edit</a>
+<% end %>
+
+<p>they will be remembered!</p>
+
 
     
 </body>

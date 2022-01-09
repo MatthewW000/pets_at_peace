@@ -7,7 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1></h1>
+   <a href="/"> pets at peace </a> 
+   
+  <div class="main_title">
+  <p>where pets come to rest</p>
+  </div>
+
+  <% if logged_in? %>
+  logged in as <%= current_user.email %>
+
+  <form action="/session" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>logout</button>
+  </form>
+
+  <% else %>
+    <a href="/login">login</a>
+    <a href="/user">sign up</a>
+  <% end %>
   <%= yield %>
 
 </body>

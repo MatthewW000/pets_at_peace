@@ -6,6 +6,7 @@ CREATE TABLE pets (
     id SERIAL PRIMARY KEY,
     name TEXT,
     image_url TEXT,
+    --description TEXT,
     user_id INTEGER
 );
 
@@ -17,6 +18,14 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email TEXT,
     password_digest TEXT
+);
+
+create table comments (
+    id SERIAL PRIMARY KEY,
+    pet_id INTEGER,
+    body TEXT,
+    user_id INTEGER ,
+    created_at TIMESTAMP
 );
 
 

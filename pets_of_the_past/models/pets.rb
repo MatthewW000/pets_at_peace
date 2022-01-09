@@ -11,10 +11,12 @@ def all_pets()
     db_query('select * from pets order by name;')
 end
 
-def create_pets(name, image_url, user_id)
-    sql = "insert into pets (name, image_url, user_id) values ($1, $2, $3)"
-    db_query(sql, [name, image_url, user_id])
+def create_pets(name, image_url)
+    sql = "insert into pets (name, image_url) values ($1, $2)"
+    db_query(sql, [name, image_url])
 end
+
+
 
 def delete_pets(id)
     db_query("delete from pets where id = $1;", [id])
@@ -24,5 +26,8 @@ def update_pets(name, image_url, id)
     sql = "update pets set name = $1, image_url = $2 where id = $3;"
     db_query(sql, [name, image_url, id])
 end
+
+
+
 
 

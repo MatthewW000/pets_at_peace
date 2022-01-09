@@ -1,4 +1,4 @@
-<h1>hello world</h1>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/main.css'>
-    <title>Document</title>
+    <title></title>
 </head>
 <body>
-
-
+<% if logged_in? %>
+<h1>Have a pet you want to share? <a href="/pets/new">share your pet here</a></h1>
+<% end %>
 <section class="pets">
+
 <%pets.each do |pet| %>
 
     <article class="card">
      <h2>
-        <a href="'/'">
+        <a href="/pets/<%= pet['id'] %>">
         <%= pet['name'] %>
         </a>
 

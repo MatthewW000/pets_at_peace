@@ -1,0 +1,13 @@
+<h1>update your pet information here</h1>
+
+<form action="/pets/<%= pets['id'] %>" method="post">
+<input type="hidden" name="_method" value="put">
+<label for="">name</label>
+<input type="text" name="name" value="<%= pets['name'] %>" >
+
+<label for="">image_url</label>
+<input type="url" name="image_url" placeholder="http://..." value="<%= pets['image_url'] %>">
+
+<button>update</button>
+
+</form>
