@@ -44,7 +44,7 @@ get '/pets/:id' do
 
   pets = db_query("select * from pets where id = $1", [pets_id]).first
 
-  comments = db_query("select body from comments")
+  comments = db_query("select body from comments where pet_id = #{params['id']}")
 
 
 
@@ -135,7 +135,7 @@ post '/pets/:id/comment' do
 
   body = params['comment']
   
-  create_comment(body)
+  create_comment(params['id'], body)
 
   redirect "/pets/#{params['id']}"
   

@@ -11,9 +11,9 @@ def create_user(email, password)
     db_query(sql, [email, password_digest])
 end
 
-def create_comment(body)
+def create_comment(pet_id, body)
 
-    pet_id = params['id']
+
     user_id = session['user_id']
     sql = "select email from users where id = $1"
     user_email = db_query(sql, [user_id]).first

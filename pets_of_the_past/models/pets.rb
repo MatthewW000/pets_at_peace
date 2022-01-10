@@ -17,7 +17,6 @@ def create_pets(name, image_url)
 end
 
 
-
 def delete_pets(id)
     db_query("delete from pets where id = $1;", [id])
 end
